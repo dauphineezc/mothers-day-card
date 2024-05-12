@@ -1,0 +1,125 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow: auto;  /* Allows scrolling */
+    background: rgb(218, 171, 244);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Ensures content is centered vertically */
+    align-items: center;
+    font-family: Snell Roundhand, cursive;
+}
+
+.content-container {
+    position: relative;  /* Context for absolute positioning */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin: 80px auto;
+}
+
+.text-column {
+    position: fixed;
+    width: 250px;
+    padding: 20px;
+    color: white;
+    font-size: 35px;
+    text-align: center;  /* Aligns text in the center of the column */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    z-index: 5;
+}
+
+.text-column.left {
+    top: 34%;
+    left: 30px;  /* Positioned 10px from the left edge */
+}
+
+.text-column.right {
+    top: 28%;
+    right: 30px;  /* Positioned 10px from the right edge */
+}
+
+.main-content {
+    padding-top: 100px;  /* Adds space at the top */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+#card {
+    position: fixed;  /* Fixes the position at a specific spot on the page */
+    top: 20px;  /* Distance from the top */
+    left: 50%;  /* Centers the element */
+    transform: translateX(-50%);  /* Corrects centering by shifting left by half its width */
+    width: auto;  /* Allows the element to grow as needed */
+    z-index: 10;  /* Ensures it's above all other content */
+    padding: 0 20px;  /* Adds padding to prevent text touching the screen edges */
+}
+
+#card h1 {
+    font-size: 3em;  /* Adjust size as necessary for fitting */
+    color: white;  /* Text color */
+    white-space: nowrap;  /* Ensures text is in one line */
+}
+
+.slideshow-container {
+    min-height: 500px;  /* Provides a minimum height before images load */
+    margin: 150px auto 0;
+    position: relative;
+    max-width: 700px;  /* Adjusted width */
+    width: 100%;  /* Ensures it takes up the full width allotted */
+    z-index: 2;  /* Ensures slideshow is above the page background but below text */
+}
+
+.mySlides img {
+    width: 100%;  /* Maintains the width */
+    max-height: 400px;  /* Limits the height for taller images */
+    object-fit: cover;  /* Ensures the image covers the area without distorting aspect ratio */
+}
+
+.heart {
+    position: absolute;
+    background-color: rgb(119, 0, 255);
+    width: 30px;
+    height: 30px;
+    transform: rotate(-45deg);
+    animation: float 5s linear infinite;
+    z-index: 1; /* Lower index to keep hearts in the background */
+}
+
+.heart:before, .heart:after {
+    content: '';
+    background-color: rgb(119, 0, 255);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+}
+
+.heart:before {
+    top: -15px;
+    left: 0;
+}
+
+.heart:after {
+    left: 15px;
+    top: 0;
+}
+
+@keyframes float {
+    0% {
+        bottom: -10px;
+        opacity: 1;
+    }
+    100% {
+        bottom: 100%;
+        opacity: 0;
+    }
+}
